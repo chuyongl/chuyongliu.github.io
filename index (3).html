@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chuyong Liu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inconsolata:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #faf8f4;
+      --text: #1a1a18;
+      --muted: #888880;
+      --accent: #8b3a2a;
+      --link: #2a5c8b;
+      --border: #ddd9d0;
+      --nav-bg: #f0ece3;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'EB Garamond', Georgia, serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 18px;
+      line-height: 1.7;
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* ── Sidebar ── */
+    nav {
+      width: 130px;
+      min-height: 100vh;
+      background: var(--nav-bg);
+      border-right: 1px solid var(--border);
+      padding: 36px 0;
+      flex-shrink: 0;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+    }
+
+    nav a {
+      display: block;
+      padding: 6px 20px;
+      font-family: 'Inconsolata', monospace;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: color 0.15s;
+    }
+
+    nav a:hover { color: var(--accent); }
+    nav a.active { color: var(--accent); font-weight: 600; }
+
+    /* ── Main content ── */
+    main {
+      flex: 1;
+      padding: 60px 64px;
+      max-width: 760px;
+    }
+
+    /* ── Name header ── */
+    .site-name {
+      font-family: 'EB Garamond', serif;
+      font-size: clamp(42px, 7vw, 72px);
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      color: #c8c0b0;
+      text-transform: uppercase;
+      line-height: 1;
+      margin-bottom: 48px;
+      user-select: none;
+    }
+
+    /* ── Section headings ── */
+    h2 {
+      font-family: 'EB Garamond', serif;
+      font-size: 22px;
+      font-weight: 500;
+      font-style: italic;
+      color: var(--text);
+      margin-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 6px;
+    }
+
+    /* ── Content sections ── */
+    section {
+      margin-bottom: 52px;
+    }
+
+    /* ── Bio text ── */
+    .bio p {
+      margin-bottom: 12px;
+      color: #3a3a36;
+    }
+
+    /* ── Lists ── */
+    .item-list {
+      list-style: none;
+    }
+
+    .item-list li {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      margin-bottom: 6px;
+    }
+
+    .item-list li::before {
+      content: '▪';
+      color: var(--accent);
+      font-size: 12px;
+      flex-shrink: 0;
+    }
+
+    .item-list a {
+      color: var(--link);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.15s, color 0.15s;
+    }
+
+    .item-list a:hover {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+
+    .item-list .meta {
+      font-family: 'Inconsolata', monospace;
+      font-size: 13px;
+      color: var(--muted);
+      margin-left: 4px;
+    }
+
+    /* ── Contact ── */
+    .contact-line {
+      font-family: 'Inconsolata', monospace;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .contact-line a {
+      color: var(--link);
+      text-decoration: none;
+    }
+
+    .contact-line a:hover { color: var(--accent); }
+
+    /* ── Page sections (hidden by default) ── */
+    .page { display: none; }
+    .page.active { display: block; }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      nav { width: 90px; }
+      main { padding: 40px 24px; }
+      nav a { padding: 6px 12px; font-size: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="active" onclick="showPage('home', this)">Home</a>
+  <a href="#" onclick="showPage('essays', this)">Essays</a>
+  <a href="#" onclick="showPage('works', this)">Works</a>
+  <a href="#" onclick="showPage('about', this)">About</a>
+</nav>
+
+<main>
+  <div class="site-name">Chuyong Liu</div>
+
+  <!-- HOME -->
+  <div id="page-home" class="page active">
+    <section class="bio">
+      <p>Welcome. This is where I share things I've been thinking about — ideas, writing, and work that feels worth putting somewhere permanent.</p>
+      <p>If you're not sure where to start, try <a href="#" onclick="showPage('essays', null)" style="color:var(--link)">Essays</a> or <a href="#" onclick="showPage('works', null)" style="color:var(--link)">Works</a>.</p>
+    </section>
+
+    <section>
+      <h2>Recent</h2>
+      <ul class="item-list">
+        <li>
+          <a href="#">On the value of slow thinking</a>
+          <span class="meta">— May 2026</span>
+        </li>
+        <li>
+          <a href="#">What I learned building my first thing</a>
+          <span class="meta">— Apr 2026</span>
+        </li>
+        <li>
+          <a href="#">Notes on moving to a new city</a>
+          <span class="meta">— Mar 2026</span>
+        </li>
+      </ul>
+    </section>
+  </div>
+
+  <!-- ESSAYS -->
+  <div id="page-essays" class="page">
+    <section>
+      <h2>Essays</h2>
+      <ul class="item-list">
+        <li><a href="#">On the value of slow thinking</a><span class="meta">2026</span></li>
+        <li><a href="#">What I learned building my first thing</a><span class="meta">2026</span></li>
+        <li><a href="#">Notes on moving to a new city</a><span class="meta">2026</span></li>
+        <li><a href="#">Why I write</a><span class="meta">2025</span></li>
+        <li><a href="#">Things I changed my mind about</a><span class="meta">2025</span></li>
+      </ul>
+    </section>
+  </div>
+
+  <!-- WORKS -->
+  <div id="page-works" class="page">
+    <section>
+      <h2>Works</h2>
+      <ul class="item-list">
+        <li><a href="#">Project One</a> — a short description of what it is</li>
+        <li><a href="#">Project Two</a> — another thing you made</li>
+        <li><a href="#">Something else</a> — a note on what this is</li>
+      </ul>
+    </section>
+  </div>
+
+  <!-- ABOUT -->
+  <div id="page-about" class="page">
+    <section class="bio">
+      <h2>About</h2>
+      <p>I'm Chuyong Liu. [Write a sentence or two about yourself here — where you're based, what you do, what you care about.]</p>
+      <p>This site is a place for writing and work I want to keep somewhere. It's intentionally simple.</p>
+    </section>
+    <section>
+      <p class="contact-line">You can reach me at <a href="mailto:you@chuyongliu.com">you@chuyongliu.com</a> or find me on <a href="#">Twitter</a>.</p>
+    </section>
+  </div>
+
+</main>
+
+<script>
+  function showPage(name, linkEl) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById('page-' + name).classList.add('active');
+    document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+    if (linkEl) linkEl.classList.add('active');
+  }
+</script>
+
+</body>
+</html>
