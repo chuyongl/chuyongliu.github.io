@@ -171,7 +171,6 @@
 <nav>
   <a href="#" class="active" onclick="showPage('home', this)">首页</a>
   <a href="#" onclick="showPage('essays', this)">文章</a>
-  <a href="#" onclick="showPage('works', this)">作品</a>
   <a href="#" onclick="showPage('about', this)">关于</a>
 </nav>
 
@@ -181,8 +180,8 @@
   <!-- HOME -->
   <div id="page-home" class="page active">
     <section class="bio">
-      <p>欢迎。这里记录我最近在思考的事情——一些想法、一些文字，还有那些值得被长久保存下来的作品。</p>
-      <p>如果不知道从哪里开始，可以先看看<a href="#" onclick="showPage('essays', null)" style="color:var(--link)">文章</a>或<a href="#" onclick="showPage('works', null)" style="color:var(--link)">作品</a>。</p>
+      <p>欢迎。这里记录我最近在思考的事情——一些想法、一些文字，还有那些值得被长久保存下来的东西。</p>
+      <p>如果不知道从哪里开始，可以先看看<a href="#" onclick="showPage('essays', null)" style="color:var(--link)">文章</a>。</p>
     </section>
 
     <section>
@@ -211,27 +210,13 @@
     </section>
   </div>
 
-  <!-- WORKS -->
-  <div id="page-works" class="page">
-    <section>
-      <h2>作品</h2>
-      <ul class="item-list">
-        <li><a href="#">项目一</a> —— 简短介绍这个项目</li>
-        <li><a href="#">项目二</a> —— 另一个作品</li>
-        <li><a href="#">其他</a> —— 关于它的一点说明</li>
-      </ul>
-    </section>
-  </div>
 
   <!-- ABOUT -->
   <div id="page-about" class="page">
     <section class="bio">
       <h2>关于</h2>
-      <p>我是 Chuyong Liu。[在这里用一两句话介绍自己——住在哪里、做什么、关心什么。]</p>
+      <p>我是 Chuyong Liu。</p>
       <p>这个网站用来存放我想留下来的文字和作品。它刻意保持简单。</p>
-    </section>
-    <section>
-      <p class="contact-line">可以通过 <a href="mailto:you@chuyongliu.com">you@chuyongliu.com</a> 联系我，或在 <a href="#">Twitter</a> 上找到我。</p>
     </section>
   </div>
 
@@ -250,7 +235,7 @@
   }
   // 支持从文章页通过 #essays 等链接直接打开对应栏目
   const h = location.hash.replace('#', '');
-  if (['home','essays','works','about'].includes(h)) showPage(h, null);
+  if (['home','essays','about'].includes(h)) showPage(h, null);
 </script>
 
 </body>
